@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-application-deploy
+  labels:
+    app: kubernetes-learning
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      type: back-end
+  template:
+    metadata:
+      labels:
+        type: back-end
+    spec: 
+        containers:
+          - name: node-backend
+            image: rahulpandey1589/nodeapi:1.1.4
+            ports: 
+              - containerPort: 1158
+            env:
+              - PORT: 1189
+                MONGO_URI: 'mongodb://mongodb:27017/health_logger?retryWrites=true&w=majority'

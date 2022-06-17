@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: healthlogger-deploy
+  labels:
+    app: kubernetes-learning
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      type: front-end
+  template:
+    metadata:
+      labels:
+        type: front-end
+    spec: 
+        containers:
+          - name: react-frontend
+            image: rahulpandey1589/react-frontend:1.1.1
+            ports: 
+              - containerPort: 3000
+
+
