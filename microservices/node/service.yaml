@@ -9,6 +9,6 @@ spec:
   type: LoadBalancer
   ports:
     - targetPort: 1158
-      port: 1158
+      port: 1189
   selector:
      type: back-end

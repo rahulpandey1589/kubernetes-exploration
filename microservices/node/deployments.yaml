@@ -16,9 +16,10 @@ spec:
     spec: 
         containers:
           - name: node-backend
-            image: rahulpandey1589/nodeapi:1.1.4
+            image: rahulpandey1589/nodeapi:1.1.6
             ports: 
               - containerPort: 1158
             env:
-              - PORT: 1189
-                MONGO_URI: 'mongodb://mongodb:27017/health_logger?retryWrites=true&w=majority'
+              - name: MONGO_URI
+                value: 'mongodb://mongodbexplore:27017/health_logger?retryWrites=true&w=majority'
+              
